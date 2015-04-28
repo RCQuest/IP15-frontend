@@ -1,12 +1,11 @@
 function openFBR(attr)
 {
-	return new Firebase("https://group15.firebaseio.com/"+attr);
+	return new Firebase("https://ipdummy.firebaseio.com/"+attr);
 }
 
 function transmitMassMessage()
 {
 
-	var url = "http://group15.pythonanywhere.com/webapi/masssms";
 	var method = "POST";
 	var postData = JSON.stringify({"group":document.getElementById("recip").parentElement.id, "message": document.getElementById("messageText").value})
 	var async = true;
@@ -14,24 +13,19 @@ function transmitMassMessage()
 
 	request.onload = function () {
 	   status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-	   if(status==200) 
+	   if(true) 
 	   {
 	   		document.getElementById("feedbackhead").innerHTML="Completed!";
 	   		document.getElementById("messageText").value= "";
-	   		document.getElementById("feedbackbody").innerHTML="Message sent.";
+	   		document.getElementById("feedbackbody").innerHTML="Dummy Message sent.";
 	   }
-	   else 
-	   {
-	   		document.getElementById("feedbackhead").innerHTML="Oops!";
-	   		document.getElementById("feedbackbody").innerHTML="Something went wrong. Your message was not sent; please try again later.";
-	   }
+	   // else 
+	   // {
+	   // 		document.getElementById("feedbackhead").innerHTML="Oops!";
+	   // 		document.getElementById("feedbackbody").innerHTML="Something went wrong. Your message was not sent; please try again later.";
+	   // }
 	}
 
-	request.open(method, url, async);
-	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-	request.send(postData);
-
-	
 }
 
 function createContact()
@@ -291,13 +285,14 @@ function messageTableFunctionality(evt)
 {
 	if(evt.target.className=="decline")
 	{
-		var url = "http://group15.pythonanywhere.com/webapi/orderdeclined";
+		alert("Dummy delcine");
 	}
 	if(evt.target.className=="accept"){
-		var url = "http://group15.pythonanywhere.com/webapi/orderaccepted";
+		alert("Dummy accept");
+	
 	}
 		if(evt.target.className=="ready"){
-		var url = "http://group15.pythonanywhere.com/webapi/orderready";
+		alert("Dummy ready");
 	}
 	if(evt.target.className=="markdone")
 	{

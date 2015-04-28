@@ -5,7 +5,7 @@
   </div>
 </div>
 <script>
-  myFirebaseRef = new Firebase("https://group15.firebaseio.com/messages");
+  myFirebaseRef = new Firebase("https://ipdummy.firebaseio.com/messages");
   myFirebaseRef.on("value", displayOutstanding);
   document.getElementById("outstandingTable").addEventListener("click", messageTableFunctionality, false);
 </script>
